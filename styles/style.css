@@ -1,0 +1,515 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #ddd;
+    padding: 0.5em;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 0.5em 1em;
+    margin: 0 0.25em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #bbb;
+}
+
+section {
+    padding: 2em;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Additional styles for logo and slider */
+#logo {
+    /* display: flex; */
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+#logo img {
+    max-width: 170px; /* the size of the logo fit our site now */
+    max-height: 300px;
+    margin-right: 1em;
+}
+
+#slider {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#slider img {
+    width: 100%;
+    height: 500px;
+    display: none;
+}
+
+#slider img.active {
+    display: block;
+}
+
+#slider {
+    position: relative;
+}
+
+.slider-container {
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-container img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.slider-container img.active {
+    display: block;
+}
+
+
+
+.slider-circles {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.slider-circle {
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider-circle.active {
+    background-color: #333;
+}
+
+
+
+/*  Styles for the Movie section */
+
+#movies .movie-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+#movies .movie {
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+#movies img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+#movies h3 {
+    margin-bottom: 10px;
+}
+
+#movies p {
+    margin-bottom: 10px;
+}
+
+#movies button {
+    background-color: #fff;
+    color: #333;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+/* // CSS Code for the Modal  */
+
+.modal0 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal0 iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Css Styles for ShowTime */
+
+#showtimes {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+#date-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.date {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+}
+
+.date:hover {
+    background-color: #555;
+}
+
+#showtimes-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#showtimes-table th, #showtimes-table td {
+    padding: 10px;
+    border: 1px solid #555;
+}
+
+#showtimes-table th {
+    background-color: #333;
+    color: white;
+}
+
+
+/* Styles for the showtime */
+.showtime {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 5px;
+    margin: 2px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.date.active {
+    background-color: #333;
+    color: white;
+}
+
+.showtime {
+    padding: 5px;
+    margin: 2px;
+    border-radius: 3px;
+    display: inline-block;
+}
+
+.green {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+}
+
+.orange {
+    background-color: #FFA500; /* Orange background */
+    color: white;
+}
+
+.red {
+    background-color: #FF0000; /* Red background */
+    color: white;
+}
+
+
+/* Movie Ticket Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    color: black;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 5px;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+  }
+  
+  /* Form styles */
+  form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input,
+  select,
+  button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+
+
+  .slider-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+
+
+  .slider-navigation button {
+    background: none;
+    border: none;
+    width: 100%;
+    font-size: 5em;
+    color: #eee8e8;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+
+
+
+/* Animation */
+/* Add animation class for fade-in effect */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.9s ease, transform 0.5s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add animation class for slide-up effect */
+.slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.5s ease;
+}
+
+.slide-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add animation class for slide-left effect */
+.slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.9s ease, transform 0.5s ease;
+}
+
+.slide-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+#contact {
+    background-color: #f5f5f5;
+    padding: 40px;
+    text-align: center;
+    color: #333;
+}
+
+#contact h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#contact p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.contact-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.contact-option {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.contact-option h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.contact-option p {
+    font-size: 1.1em;
+    margin: 0;
+}
+
+
+/* Mouse Scroll Animation Styles */
+/* Animation */
+/* Add animation class for fade-in effect */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add animation class for slide-up effect */
+.slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Add animation class for slide-left effect */
+.slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-left.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+
+/* CSS for movement animation */
+@keyframes move {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply movement animation to a specific element */
+  .move-text {
+    animation: move 1s infinite; /* Adjust the duration and iteration as needed */
+  }
+  
+  /* Additional styles for demonstration */
+  #animated-text {
+    font-size: 24px;
+    margin-top: 50px;
+  }

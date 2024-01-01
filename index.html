@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asian Cinemas</title>
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <script src="scripts/script.js"></script>
+    <style>
+    
+    </style>
+</head>
+<body>
+
+   <header>
+        <div id="logo">
+            <img src="images/logo.png" alt="Asian Cinemas Logo">
+            <h1>Where Every Frame Tells a Story</h1>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#movies">Movies</a>
+        <a href="#showtimes">Showtimes</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <section id="slider">
+        <!-- Portion of code for All slider images are here that can be increased to any number-->
+        <div class="slider-container">
+            <img src="images/movie1.jpg" alt="Movie 1" class="active">
+            <img src="images/movie2.jpg" alt="Movie 2">
+            <img src="images/movie3.jpg" alt="Movie 3">
+            <img src="images/movie4.jpg" alt="Movie 4">
+            <img src="images/movie5.jpg" alt="Movie 5">
+            <img src="images/movie6.jpg" alt="Movie 6">
+            <img src="images/movie7.jpg" alt="Movie 7">
+            <img src="images/movie8.jpg" alt="Movie 8">
+        </div>
+        <div class="slider-navigation">
+            <button class="" onclick="prevImage()">❮</button>
+            <button class="" onclick="nextImage()">❯</button>
+        </div>
+        <div class="slider-circles"></div>
+    </section>
+
+    <section id="showtimes" class="fade-in slide-up">
+        <h2>Now Showing</h2>
+        <p>Check out our latest movie listings and enjoy an amazing cinematic experience.</p>
+    </section>
+
+    <section id="movies" style="background-color: black; color: white;">
+        
+        <div class="movie-container ">
+            <div class="movie">
+                <img src="images/THANKSGIVING.jpg" alt="Thanks Giving">
+                <h3>Thanks Giving</h3>
+                <p>Runtime: 2h 30min</p>
+                <button onclick="openTrailer('https://www.youtube.com/watch?v=KbU50SdL8zA')">Watch Trailer</button>
+                <button onclick="openTicketModal('Thanks Giving')">Buy Tickets</button>
+            </div>
+    
+            <div class="movie">
+                <img src="images/Napoleon.jpg" alt="Napoleon">
+                <h3>Napoleon</h3>
+                <p>Runtime: 2h 15min</p>
+                <button onclick="openTrailer('https://www.youtube.com/watch?v=OAZWXUkrjPc')">Watch Trailer</button>
+                <button onclick="openTicketModal('Napoleon')">Buy Tickets</button>
+            </div>
+    
+            <div class="movie">
+                <img src="images/SilentNight.jpg" alt="Silent Night">
+                <h3>Silent Night</h3>
+                <p>Runtime: 2h 45min</p>
+                <button onclick="openTrailer('https://www.youtube.com/watch?v=yBnTqn0lBDA')">Watch Trailer</button>
+                <button onclick="openTicketModal('Silent Night')">Buy Tickets</button>
+            </div>
+    
+            <div class="movie">
+                <img src="images/DhaiChaal.jpg" alt="Dhai Chaal">
+                <h3>Dhai Chaal</h3>
+                <p>Runtime: 2h 10min</p>
+                <button onclick="openTrailer('https://www.youtube.com/watch?v=1yOmiawrCKU')">Watch Trailer</button>
+                <button onclick="openTicketModal('Dhai Chaal')">Buy Tickets</button>
+            </div>
+
+            <div class="movie">
+                <img src="images/TheHungerGamesTBOSAS.jpg" alt="The Hunger Games: The Ballad of Songbirds & Snakes">
+                <h3>The Hunger Games</h3>
+                <p>Runtime: 2h 10min</p>
+                <button onclick="openTrailer('https://www.youtube.com/watch?v=NxW_X4kzeus')">Watch Trailer</button>
+                <button onclick="openTicketModal('The Hunger Games')">Buy Tickets</button>
+            </div>
+    
+            <div class="movie">
+                <img src="images/MarvelsDUB.jpg" alt="The Marvels">
+                <h3>The Marvels</h3>
+                <p>Runtime: 2h 10min</p>
+                <button onclick="openTrailer('https://www.youtube.com/watch?v=gLuhrhEfQBc')">Watch Trailer</button>
+                <button onclick="openTicketModal('The Marvels')">Buy Tickets</button>
+            </div>
+
+            <div class="movie">
+                <img src="images/MaujaanHiMaujaan.jpg" alt="Maujaan Hi Maujaan">
+                <h3>Maujaan Hi Maujaan</h3>
+                <p>Runtime: 2h 10min</p>
+                <button onclick="openTrailer('https://www.youtube.com/watch?v=kslt19LEJQk')">Watch Trailer</button>
+                <button onclick="openTicketModal('Maujaan Hi Maujaan')">Buy Tickets</button>
+            </div>
+
+
+            <div class="movie">
+                <img src="images/Nun2DUB.jpg" alt="THE NUN 2">
+                <h3>THE NUN 2</h3>
+                <p>Runtime: 2h 10min</p>
+                <button onclick="openTrailer('https://www.youtube.com/watch?v=THPexyJXNX0')">Watch Trailer</button>
+                <button onclick="openTicketModal('THE NUN 2')">Buy Tickets</button>
+            </div>
+    
+            <!-- Movies Listing End Here -->
+        </div>
+
+    <!-- Trailer Modal to show youtube trailer on screen -->
+    <div id="trailer-modal" class="modal">
+        <span class="close" onclick="closeTrailerModal()">&times;</span>
+        <iframe id="trailer-iframe" width="1060" height="515" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+
+    <!-- Movie Ticket Modal to show buy ticket calculation form on screen -->
+
+    <div id="ticketModal" class="modal0">
+        <div class="modal-content">
+          <span class="close" onclick="closeTicketModal()">&times;</span>
+          <h2>Ticket Reservation form</h2>
+          <h2 id="selectedMovie1"></h2>
+          <!-- Ticket reservation form -->
+          <form id="reservationForm">
+            <!-- Hidden input to store the selected movie name -->
+            <input type="hidden" id="selectedMovie" name="selectedMovie" value="" required>
+      
+            <!-- Hidden input to store the screen details -->
+            <input type="hidden" id="screenDetails" name="screenDetails" value="Screen 1">
+      
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+      
+            <label for="contactNumber">Contact Number:</label>
+            <input type="tel" id="contactNumber" name="contactNumber" required>
+      
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+      
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+      
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+      
+            <label for="seatNumber">Select Seat:</label>
+            <select id="seatNumber" name="seatNumber">
+              <!-- <Showing Tickets from 1 upto 30 for now -->
+            </select>
+
+            <!-- Calculation Form Portion -->
+            <label for="numTickets">Number of Tickets:</label>
+            <input type="number" id="numTickets" name="numTickets" min="1" required oninput="updateTotal()">
+            
+            <!-- Display the total cost automatically using javascript -->
+            <label for="totalCost">Total Cost:</label>
+            <input type="text" id="totalCost" name="totalCost" readonly>
+
+      
+            <button type="button" onclick="reserveTicket()" style="background-color: rgb(125, 226, 43);">Reserve</button>
+            <button type="button" onclick="cancelReservation()" style="background-color: rgb(226, 116, 43);">Cancel</button>
+          </form>
+        </div>
+      </div>
+
+
+
+    </section>
+
+    <section id="showtimes" >
+        <h2 class="fade-in slide-up">Show times</h2>
+        <p class="fade-in">Find the showtimes for your favorite movies and plan your visit for this Weekend Three Days.</p>
+
+
+          <!-- Availability buttons -->
+            <div id="availability-buttons">
+                <span class="availability-button green">Available</span>
+                <span class="availability-button orange">Almost Full</span>
+                <span class="availability-button red">Soldout</span>
+            </div>
+        <!-- Date row -->
+        <div id="date-row">
+            <div class="date" onclick="showMovies('2023-04-10')">April 10</div>
+            <div class="date" onclick="showMovies('2023-04-11')">April 11</div>
+            <div class="date" onclick="showMovies('2023-04-12')">April 12</div>
+        </div>
+
+        <!-- Showtimes table -->
+        <table id="showtimes-table">
+            <thead>
+                <tr>
+                    <th>Movie</th>
+                    <th>Screen</th>
+                    <th>Show Times</th>
+                </tr>
+            </thead>
+            <tbody id="showtimes-body">
+                <!-- Content will be dynamically updated based on selected date -->
+            </tbody>
+        </table>
+    </section>
+
+    <section id="contact" >
+        <h2 class="slide-up">Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us. We are here to help!</p>
+    
+        <div class="contact-options">
+            <div class="contact-option">
+                <h3>Customer Support</h3>
+                <p>Email: support@asiancinemas.com</p>
+                <p>Phone: +61 468 397-205</p>
+            </div>
+    
+            <div class="contact-option">
+                <h3>Business Inquiries</h3>
+                <p>Email: business@asiancinemas.com</p>
+                <p>Phone: +61 478 771-424</p>
+            </div>
+        </div>
+    
+    
+    </section>
+    
+
+    <section id="contact" >
+        <h2 class="slide-up">Contact Us</h2>
+        <p class="slide-up">If you have any questions or need assistance, feel free to reach out to us. We are here to help!</p>
+
+        <!-- Contact Form -->
+        <form id="contactForm" action="https://formspree.io/f/moqgqjgv" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+   
+
+
+    <footer>
+        &copy; 2023 Asian Cinemas. All rights reserved.
+    </footer>
+
+
+    
+    
+    
+
+</body>
+
+
+</html>
